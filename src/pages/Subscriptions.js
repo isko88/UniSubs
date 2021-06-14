@@ -1,8 +1,11 @@
 import StatusCard from 'components/StatusCard';
 import SubscriptionCard from 'components/SubscriptionCard';
 import TableCard from 'components/TableCard';
+import { useSelector } from 'react-redux';
 
 export default function Dashboard() {
+    const subs = useSelector(state => state.Subscription)
+    
     return (
         <>
             <div className="bg-light-blue-500 pt-14 pb-28 px-3 md:px-8 h-auto">
@@ -18,26 +21,27 @@ export default function Dashboard() {
                             percentageColor="green"
                             date="Since last month"
                         />
-                        <StatusCard
+                   <StatusCard
                             color="orange"
                             icon="groups"
-                            title="New Users"
-                            amount="2,356"
-                            percentage="3.48"
-                            percentageIcon="arrow_downward"
+                            title="Subscriptions"
+                            amount={`${subs.length}`}
+                            percentage=""
+                            percentageIcon=""
                             percentageColor="red"
-                            date="Since last week"
+                            date=""
                         />
                         <StatusCard
                             color="purple"
                             icon="paid"
-                            title="Sales"
-                            amount="924"
-                            percentage="1.10"
-                            percentageIcon="arrow_downward"
+                            title="Subscription Total Price"
+                            amount={`${Math.floor(subs.reduce((acc, item) => acc + item.price , 0))}   AZN`}
+                            percentage=""
+                            percentageIcon=""
                             percentageColor="orange"
-                            date="Since yesterday"
+                            date=""
                         />
+                 
                         <StatusCard
                             color="blue"
                             icon="poll"

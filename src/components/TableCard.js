@@ -30,9 +30,8 @@ const [deleted, setdeleted] = useState(false)
   }, [newCard, dispatch])
 
   const handleRemove = (e)=>{
-    const removeCardId = e.target.parentElement.getAttribute("data-id");
-    deleteCard(localStorage.username,removeCardId)(dispatch);
-    setdeleted(true);
+  e.target.parentElement.parentElement.remove();
+
   }
   React.useEffect(() => {
     if (document.querySelector("#tableFresh") && document.querySelector("#tableFresh").remove() || !document.querySelector("#tableFresh") ) {

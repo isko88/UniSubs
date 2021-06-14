@@ -9,14 +9,6 @@ export default function PageVisitsCard() {
             <CardHeader color="blue" contentPosition="none">
                 <div className="w-full flex items-center justify-between">
                     <h2 className="text-white text-2xl">Page Visits</h2>
-                    <Button
-                        color="transparent"
-                        buttonType="link"
-                        size="lg"
-                        style={{ padding: 0 }}
-                    >
-                        See More
-                    </Button>
                 </div>
             </CardHeader>
             <CardBody>

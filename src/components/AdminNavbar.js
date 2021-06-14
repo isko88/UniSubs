@@ -16,8 +16,9 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
   
     const handleLogout = React.useCallback(()=>{
         localStorage.removeItem("username");
-        window.location.reload()
         push("/")
+        window.location.reload()
+        
     },[])
     return (
         <nav className="bg-light-blue-500 md:ml-64 py-6 px-3">

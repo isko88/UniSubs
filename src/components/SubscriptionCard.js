@@ -41,12 +41,9 @@ export default function SubscriptionCard() {
         addSubscription(localStorage.username, newSub)(dispatch);
     }, [newSub, dispatch])
 
-    const handleRemove = React.useCallback((e)=>{
-        const removeCardId = e.target.parentElement.getAttribute("data-id");
-    
-        console.log(removeCardId,"kartin idsi")
-        deleteSubscription(localStorage.username,removeCardId)(dispatch)
-      },[])
+    const handleRemove =(e)=>{
+        e.target.parentElement.parentElement.remove();
+      }
 
 
     React.useEffect(() => {
