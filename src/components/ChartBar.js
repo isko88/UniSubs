@@ -3,9 +3,14 @@ import Chart from 'chart.js';
 import Card from '@material-tailwind/react/Card';
 import CardHeader from '@material-tailwind/react/CardHeader';
 import CardBody from '@material-tailwind/react/CardBody';
+import { useSelector } from 'react-redux';
 
 export default function ChartBar() {
+    let arrpoints = []
+    
+    const subs = useSelector(state => state.Subscription)
     useEffect(() => {
+   
         let config = {
             type: 'bar',
             data: {
@@ -107,7 +112,7 @@ export default function ChartBar() {
                 <h6 className="uppercase text-gray-200 text-xs font-medium">
                     Overview
                 </h6>
-                <h2 className="text-white text-2xl">Sales value</h2>
+                <h2 className="text-white text-2xl">Subscriptions Statistic by Price</h2>
             </CardHeader>
             <CardBody>
                 <div className="relative h-96">

@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { addCard } from 'redux/actions/cardActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteCard } from 'redux/actions/cardActions';
+import { removeCard } from 'redux/actions/cardActions';
 
 export default function CardTable() {
   const dispatch = useDispatch();
@@ -29,9 +30,10 @@ const [deleted, setdeleted] = useState(false)
     addCard(localStorage.username,newCard)(dispatch)
   }, [newCard, dispatch])
 
-  const handleRemove = (e)=>{
-  e.target.parentElement.parentElement.remove();
-
+  const handleRemove = (e,id) =>{
+    console.log(id,"clikle")
+    // removeCard(id)(dispatch)
+    // e.target.parentElement.parentElement.remove()
   }
   React.useEffect(() => {
     if (document.querySelector("#tableFresh") && document.querySelector("#tableFresh").remove() || !document.querySelector("#tableFresh") ) {
@@ -115,7 +117,7 @@ const [deleted, setdeleted] = useState(false)
                         <td>{s.bankName}</td>
                         <td>{s.expiryDate}</td>
                         <td>{s.type}</td>
-                        <td data-id={s.id}><i  className="fa fa-edit" style={{cursor:"pointer"}}></i> <i onClick={handleRemove} className="fas fa-trash" style={{cursor:"pointer"}}></i></td>
+                        <td data-id={s.id}><i  className="fa fa-edit" style={{cursor:"pointer"}}></i> <i onClick={(e)=>handleRemove(e,s.id)} className="fas fa-trash" style={{cursor:"pointer"}}></i></td>
                       </tr>)
                       )}
 

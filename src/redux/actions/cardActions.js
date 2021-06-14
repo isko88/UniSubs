@@ -41,3 +41,9 @@ export const deleteCard = (username,cardId) => {
         ).catch(err=>console.log(err.message))
     };
 }
+
+export const removeCard = (cardID) =>{
+    return (dispatch)=>{
+        dispatch({ type: "REMOVE_CARD", payload: cardID })
+    }
+}

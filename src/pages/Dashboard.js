@@ -4,10 +4,12 @@ import ChartBar from 'components/ChartBar';
 import PageVisitsCard from 'components/PageVisitsCard';
 import TrafficCard from 'components/TrafficCard';
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import React from 'react';
 
 export default function Dashboard() {
     
-    const subs = useSelector(state => state.Subscription)
+const subs = useSelector(state => state.Subscription)
     return (
         <>
             <div className="bg-light-blue-500 px-3 md:px-8 h-40" />
@@ -33,10 +35,10 @@ export default function Dashboard() {
                             icon="trending_up"
                             title="Traffic"
                             amount="350,897"
-                            percentage="3.48"
-                            percentageIcon="arrow_upward"
-                            percentageColor="green"
-                            date="Since last month"
+                            percentage=""
+                            percentageIcon=""
+                            percentageColor=""
+                            date=""
                         />
                         <StatusCard
                             color="orange"

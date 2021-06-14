@@ -23,11 +23,11 @@ export default function StatusCard({
                         <Icon name={icon} size="3xl" color="white" />
                     </CardHeader>
 
-                    <CardStatus title={title} amount={amount} />
+                    <CardStatus title={title} amount={`${amount}`} />
                 </CardRow>
 
                 <CardStatusFooter
-                    amount={percentage}
+                    amount={`${percentage}`}
                     color={percentageColor}
                     date={date}
                 >

@@ -20,7 +20,7 @@ export const cardReducer = (state = INITIALSTATE, action) => {
         case "UPDATE_CARD":
            return state ; //Burda kartin update olacaq. hazir deyil 
       
-        case "DELETE_CARD":
+        case "REMOVE_CARD":
             return state.filter(card => card.id !== action.payload);
         default:
             return state;

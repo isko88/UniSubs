@@ -3,9 +3,17 @@ import Chart from 'chart.js';
 import Card from '@material-tailwind/react/Card';
 import CardHeader from '@material-tailwind/react/CardHeader';
 import CardBody from '@material-tailwind/react/CardBody';
+import { useDispatch, useSelector } from 'react-redux';
+import { getSubscriptions } from 'redux/actions/subscriptionActions';
 
 export default function ChartLine() {
+    let arrpoints = []
+    const subs = useSelector(state => state.Subscription)
     useEffect(() => {
+      console.log(subs,"subslar")
+        subs.forEach(sub => {
+            arrpoints.push(Math.floor(sub.price))
+        });
         var config = {
             type: 'line',
             data: {
@@ -23,7 +31,7 @@ export default function ChartLine() {
                         label: new Date().getFullYear(),
                         backgroundColor: '#03a9f4',
                         borderColor: '#03a9f4',
-                        data: [65, 78, 66, 44, 56, 67, 75],
+                        data: arrpoints /*[65, 78, 66, 44, 56, 67, 75]*/,
                         fill: false,
                     },
                     {
@@ -116,7 +124,7 @@ export default function ChartLine() {
                 <h6 className="uppercase text-gray-200 text-xs font-medium">
                     Overview
                 </h6>
-                <h2 className="text-white text-2xl">Sales value</h2>
+                <h2 className="text-white text-2xl">Monthly Subscription Chart</h2>
             </CardHeader>
             <CardBody>
                 <div className="relative h-96">
